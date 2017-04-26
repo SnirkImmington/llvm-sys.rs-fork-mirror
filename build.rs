@@ -273,6 +273,8 @@ fn main() {
     for name in get_link_libraries() {
         println!("cargo:rustc-link-lib=static={}", name);
     }
+    // Dynamically link to libffi
+    println!("cargo:rustc-link-lib=dylib=ffi");
 
     // Link system libraries
     for name in get_system_libraries() {
